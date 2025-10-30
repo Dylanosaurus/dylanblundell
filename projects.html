@@ -22,11 +22,18 @@
     <!-- Projects Section -->
     <section class="projects-page">
         <div class="container">
-            <h2 class="section-title">My Projects</h2>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 class="section-title" style="margin-bottom: 0;">My Projects</h2>
+                <button id="toggle-all-btn" class="btn btn-primary" style="margin: 0;">Expand All</button>
+            </div>
             
             <!-- Processing (Java) -->
-            <div id="processing" class="project-category">
-                <h3 class="category-title">Processing (Java)</h3>
+            <div id="processing" class="project-category collapsed">
+                <h3 class="category-title category-header">
+                    <span>Processing (Java)</span>
+                    <button class="toggle-btn" aria-label="Toggle section">▼</button>
+                </h3>
+                <div class="category-content">
                 
                 <div class="project-detail-card">
                     <h4>Population Visualization of Micronesian Islands</h4>
@@ -86,11 +93,16 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- TypeScript Interactive Webpages -->
-            <div id="typescript" class="project-category">
-                <h3 class="category-title">TypeScript Interactive Webpages</h3>
+            <div id="typescript" class="project-category collapsed">
+                <h3 class="category-title category-header">
+                    <span>TypeScript Interactive Webpages</span>
+                    <button class="toggle-btn" aria-label="Toggle section">▼</button>
+                </h3>
+                <div class="category-content">
                 
                 <div class="project-detail-card">
                     <h4><a href="https://csci-4611-fall-2023.github.io/assignment-1-Dylanosaurus/" target="_blank">Text Rain</a></h4>
@@ -135,11 +147,16 @@
                         <img src="https://github.com/Dylanosaurus/Dylanosaurus/blob/main/Project%20Pictures/h2.png?raw=true" alt="Harold and the Purple Crayon" class="project-image">
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- Virtual Reality (Godot) -->
-            <div id="vr" class="project-category">
-                <h3 class="category-title">Virtual Reality (Godot)</h3>
+            <div id="vr" class="project-category collapsed">
+                <h3 class="category-title category-header">
+                    <span>Virtual Reality (Godot)</span>
+                    <button class="toggle-btn" aria-label="Toggle section">▼</button>
+                </h3>
+                <div class="category-content">
                 
                 <div class="project-detail-card">
                     <h4>Skiing Simulator</h4>
@@ -166,11 +183,16 @@
                         <img src="https://github.com/Dylanosaurus/Dylanosaurus/blob/main/Project%20Pictures/dofs1.png?raw=true" alt="7-DOF Spindle" class="project-image">
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- Figma -->
-            <div id="figma" class="project-category">
-                <h3 class="category-title">Figma</h3>
+            <div id="figma" class="project-category collapsed">
+                <h3 class="category-title category-header">
+                    <span>Figma</span>
+                    <button class="toggle-btn" aria-label="Toggle section">▼</button>
+                </h3>
+                <div class="category-content">
                 
                 <div class="project-detail-card">
                     <h4>Roommate Finder App (5 partners)</h4>
@@ -196,11 +218,16 @@
                         <img src="https://github.com/Dylanosaurus/Dylanosaurus/blob/main/Project%20Pictures/bc1.png?raw=true" alt="BrickComplete 2" class="project-image">
                     </div>
                 </div>
+                </div>
             </div>
 
             <!-- C++ -->
-            <div id="cpp" class="project-category">
-                <h3 class="category-title">C++</h3>
+            <div id="cpp" class="project-category collapsed">
+                <h3 class="category-title category-header">
+                    <span>C++</span>
+                    <button class="toggle-btn" aria-label="Toggle section">▼</button>
+                </h3>
+                <div class="category-content">
                 
                 <div class="project-detail-card">
                     <h4>PPM Image Resizing Program</h4>
@@ -269,6 +296,7 @@
                     <div class="project-images">
                         <img src="https://github.com/Dylanosaurus/Dylanosaurus/blob/main/Project%20Pictures/sim1.png?raw=true" alt="Uber Simulator" class="project-image">
                     </div>
+                </div>
                 </div>
             </div>
         </div>

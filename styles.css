@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+/* Ensure all images don't exceed viewport */
+img {
+    max-width: min(100%, 100vw - 40px);
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -213,17 +222,25 @@ section {
 .project-links {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .project-links a {
     color: #2c3e50;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: #2c3e50;
+    text-underline-offset: 3px;
     font-weight: 600;
-    transition: color 0.3s ease;
+    padding: 8px 16px;
+    background: rgba(44, 62, 80, 0.1);
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 .project-links a:hover {
-    color: #34495e;
+    color: #fff;
+    background: #2c3e50;
+    text-decoration-color: #fff;
 }
 
 /* Social Links Section */
@@ -343,7 +360,7 @@ html {
 }
 
 .project-category {
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     scroll-margin-top: 120px;
 }
 
@@ -353,6 +370,69 @@ html {
     margin-bottom: 2rem;
     padding-bottom: 0.5rem;
     border-bottom: 3px solid #2c3e50;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #2c3e50;
+}
+
+/* Override category-title border when it's also a header */
+.category-title.category-header {
+    border-bottom: 3px solid #2c3e50;
+}
+
+.category-header:hover {
+    color: #34495e;
+}
+
+.toggle-btn {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+}
+
+.toggle-btn:hover {
+    background: #34495e;
+}
+
+.category-content {
+    max-height: 10000px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease, margin-top 0.3s ease;
+    opacity: 1;
+    margin-top: 0;
+}
+
+.project-category.collapsed .category-content {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+}
+
+.project-category.collapsed .toggle-btn {
+    transform: rotate(-90deg);
+}
+
+#toggle-all-btn {
+    white-space: nowrap;
 }
 
 .project-detail-card {
@@ -377,12 +457,16 @@ html {
 
 .project-detail-card h4 a {
     color: #2c3e50;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    text-decoration: underline;
+    text-decoration-color: #2c3e50;
+    text-underline-offset: 4px;
+    transition: all 0.3s ease;
 }
 
 .project-detail-card h4 a:hover {
-    color: #34495e;
+    color: #1a2532;
+    text-decoration-color: #1a2532;
+    text-decoration-thickness: 2px;
 }
 
 .project-detail-card h5 {
@@ -402,6 +486,22 @@ html {
 .project-detail-card p {
     color: #666;
     margin-bottom: 1rem;
+}
+
+/* Make any links in project detail cards more obvious */
+.project-detail-card a:not(.project-links a):not(h4 a) {
+    color: #2c3e50;
+    text-decoration: underline;
+    text-decoration-color: #2c3e50;
+    text-underline-offset: 3px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.project-detail-card a:not(.project-links a):not(h4 a):hover {
+    color: #1a2532;
+    text-decoration-color: #1a2532;
+    text-decoration-thickness: 2px;
 }
 
 .project-features {
@@ -435,26 +535,23 @@ html {
 
 .project-image {
     max-width: 100%;
+    max-width: min(100%, 100vw - 40px);
+    max-height: 80vh;
+    width: auto;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.project-image:hover {
-    transform: scale(1.02);
+    object-fit: contain;
 }
 
 .project-image-small {
-    max-width: 250px;
+    max-width: min(250px, 100vw - 40px);
+    max-height: 80vh;
+    width: auto;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.project-image-small:hover {
-    transform: scale(1.05);
+    object-fit: contain;
 }
 
 .image-pair {
@@ -509,6 +606,11 @@ html {
         font-size: 1.5rem;
     }
 
+    .category-header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
     .project-detail-card {
         padding: 1.5rem;
     }
@@ -527,6 +629,18 @@ html {
 
     .project-image-small {
         max-width: 100%;
+    }
+
+    /* Make toggle all button stack on mobile */
+    .projects-page .container > div:first-child {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    #toggle-all-btn {
+        width: 100%;
+        text-align: center;
     }
 }
 
