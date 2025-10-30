@@ -4,346 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dylan Blundell - Software Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #2c3e50;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-            color: white;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-        }
-
-        .profile-picture {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            margin: 0 auto 2rem;
-            display: block;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-picture:hover {
-            transform: scale(1.05);
-        }
-
-        .hero-content {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero h2 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            opacity: 0.8;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary {
-            background: #f8f9fa;
-            color: #2c3e50;
-            border: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-secondary:hover {
-            background: #f8f9fa;
-            color: #2c3e50;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary {
-            background: #2c3e50;
-            border-color: #2c3e50;
-        }
-
-        .btn-primary:hover {
-            background: #34495e;
-            border-color: #34495e;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .project-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-links a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .project-links a:hover {
-            color: #34495e;
-        }
-
-        /* Social Links Section */
-        .social-links {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-        }
-
-        .social-links .section-title {
-            color: white;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .social-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .social-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .social-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .social-card p {
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .social-card a {
-            display: inline-block;
-            padding: 10px 25px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .social-card a:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .profile-picture {
-                width: 150px;
-                height: 150px;
-            }
-
-            .hero-content {
-                padding: 2rem 1.5rem;
-                margin: 0 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero h2 {
-                font-size: 1.2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 200px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .social-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Header -->
@@ -351,9 +12,9 @@
         <nav class="container">
             <div class="logo">Dylan Blundell</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -367,7 +28,7 @@
                 <h2>Software Engineer</h2>
                 <p>Passionate about creating innovative solutions and building exceptional user experiences. I specialize in full-stack development with a focus on clean, efficient code and modern technologies.</p>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="projects.html" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
@@ -380,29 +41,43 @@
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Project Alpha</h3>
-                    <p>A full-stack web application built with modern technologies. Features include user authentication, real-time data processing, and responsive design.</p>
+                    <h3>Processing (Java)</h3>
+                    <p>Data visualization projects including population mapping, temperature heatmaps, and image edge detection algorithms.</p>
                     <div class="project-links">
-                        <a href="#" target="_blank">Live Demo</a>
-                        <a href="#" target="_blank">GitHub</a>
+                        <a href="projects.html#processing">View Projects →</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>Project Beta</h3>
-                    <p>An innovative mobile application that solves real-world problems. Built with cross-platform technologies for maximum reach and impact.</p>
+                    <h3>TypeScript Web Applications</h3>
+                    <p>Interactive 3D web experiences including Text Rain, 3D games, data visualizations, and shader implementations.</p>
                     <div class="project-links">
-                        <a href="#" target="_blank">Live Demo</a>
-                        <a href="#" target="_blank">GitHub</a>
+                        <a href="projects.html#typescript">View Projects →</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>Project Gamma</h3>
-                    <p>A data visualization dashboard that provides insights into complex datasets. Features interactive charts and real-time updates.</p>
+                    <h3>Virtual Reality (Godot)</h3>
+                    <p>Immersive VR experiences including skiing simulators, bird flight simulators, and 7-DOF spindle implementations.</p>
                     <div class="project-links">
-                        <a href="#" target="_blank">Live Demo</a>
-                        <a href="#" target="_blank">GitHub</a>
+                        <a href="projects.html#vr">View Projects →</a>
                     </div>
                 </div>
+                <div class="project-card">
+                    <h3>Figma Design</h3>
+                    <p>UI/UX design projects including a Roommate Finder app and a Lego Collection app with interactive prototypes.</p>
+                    <div class="project-links">
+                        <a href="projects.html#figma">View Projects →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>C++ Graphics & Games</h3>
+                    <p>Computer graphics projects including raytracers, image processing, and game development with advanced rendering techniques.</p>
+                    <div class="project-links">
+                        <a href="projects.html#cpp">View Projects →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-projects">
+                <a href="projects.html" class="btn btn-primary">View All Projects</a>
             </div>
         </div>
     </section>
@@ -425,7 +100,7 @@
                 <div class="social-card">
                     <h3>Resume</h3>
                     <p>Download my resume to learn more about my experience and skills.</p>
-                    <a href="dylan blundell resume.pdf" target="_blank">Download PDF</a>
+                    <a href="Dylan Blundell Resume.pdf" target="_blank">Download PDF</a>
                 </div>
             </div>
         </div>
@@ -434,8 +109,9 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Dylan Blundell. All rights reserved.</p>
+            <p>&copy; 2025 Dylan Blundell. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
